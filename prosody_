@@ -75,9 +75,9 @@ def main():
 
             lua_mem = re.compile("Result: (\d+)").findall(lua_response)[0]
 
-            print("memory_total.value", mem_map["allocated")]
-            print("memory_used.value", mem_map["used")]
-            print("memory_lua.value"), lua_mem
+            print("memory_total.value", mem_map["allocated"])
+            print("memory_used.value", mem_map["used"])
+            print("memory_lua.value", lua_mem)
 
     if wildcard == "c2s":
         if mode == "config":
@@ -87,8 +87,7 @@ def main():
 
             print("all_client_connections.label client connections")
             print("secure_client_connections.label secure client connections")
-            print("insecure_client_connections.label insecure client ") \
-                  "connections"
+            print("insecure_client_connections.label insecure client connections")
             sys.exit(0)
 
         else:
@@ -153,11 +152,11 @@ def main():
             telnet.write("c2s:show()\n")
             telnet_response = telnet.read_until("clients", 5)
             parsed_info = client_presence_re.findall(telnet_response)
-            print("available.value %s" % (parsed_info.count("available")))
-            print("chat.value %s" % (parsed_info.count("chat")))
-            print("away.value %s" % (parsed_info.count("away")))
-            print("xa.value %s" % (parsed_info.count("xa")))
-            print("dnd.value %s" % (parsed_info.count("dnd")))
+            print("available.value %s") % (parsed_info.count("available"))
+            print("chat.value %s") % (parsed_info.count("chat"))
+            print("away.value %s") % (parsed_info.count("away"))
+            print("xa.value %s") % (parsed_info.count("xa"))
+            print("dnd.value %s") % (parsed_info.count("dnd"))
             telnet.write("quit")
 
     elif wildcard == "uptime":
